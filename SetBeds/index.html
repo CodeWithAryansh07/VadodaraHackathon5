@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Bed Management Area</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .bed-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 40px;
+        }
+        .bed {
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .add-bed-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 110px;
+            height: 100px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .add-bed {
+            padding: 10px 20px;
+            border: 2px solid black;
+            background-color: white;
+            cursor: pointer;
+        }
+        .bed button {
+            position: absolute;
+            top: 5px;
+            width: 25px;
+            height: 25px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .delete-bed {
+            right: 5px;
+        }
+        .bed-details {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+        .bed:hover .bed-details {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hospital Bed Management Area</h1>
+
+    <!-- Bed Management Sections -->
+    <div class="controls">Critical Beds (without ventilator)</div>
+    <div class="bed-container" id="criticalWithoutVentilatorContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Critical Bed with ventilator</div>
+    <div class="bed-container" id="criticalWithVentilatorContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Non-critical beds</div>
+    <div class="bed-container" id="nonCriticalContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Operation Theatre Bed</div>
+    <div class="bed-container" id="operationTheatreContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">General Ward Bed</div>
+    <div class="bed-container" id="generalWardContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Semi-Electric Bed</div>
+    <div class="bed-container" id="semiElectricContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Fully Electric Bed</div>
+    <div class="bed-container" id="fullyElectricContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">ICU Bed</div>
+    <div class="bed-container" id="icuContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">High Dependency Unit (HDU) Bed</div>
+    <div class="bed-container" id="hduContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Maternity Bed</div>
+    <div class="bed-container" id="maternityContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Pediatric Bed</div>
+    <div class="bed-container" id="pediatricContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Bariatric Bed</div>
+    <div class="bed-container" id="bariatricContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Isolation Bed</div>
+    <div class="bed-container" id="isolationContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Rehabilitation Bed</div>
+    <div class="bed-container" id="rehabilitationContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <div class="controls">Swing Bed</div>
+    <div class="bed-container" id="swingContainer">
+        <div class="add-bed-container">
+            <button class="add-bed">Add Bed +</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle the add bed button click
+        document.querySelectorAll('.add-bed').forEach(button => {
+            button.addEventListener('click', function() {
+                const containerId = this.closest('.bed-container').id;
+                window.location.href = `add-bed.html?type=${encodeURIComponent(containerId)}`;
+            });
+        });
+    
+        // Function to add a new bed element
+        function addBed(containerId, roomNumber) {
+            const bedContainer = document.getElementById(containerId);
+            const newBed = document.createElement('div');
+            newBed.className = 'bed';
+            newBed.innerHTML = `
+                <button class="delete-bed">🗑</button>
+                <div class="bed-details">Room No: ${roomNumber}</div>
+            `;
+            bedContainer.insertBefore(newBed, bedContainer.querySelector('.add-bed-container'));
+            addEventListeners(newBed);
+    
+            // Save the bed to local storage
+            saveBedToLocal(containerId, roomNumber);
+        }
+    
+        // Function to save bed details to local storage
+        function saveBedToLocal(containerId, roomNumber) {
+            let beds = JSON.parse(localStorage.getItem('beds')) || {};
+            if (!beds[containerId]) {
+                beds[containerId] = [];
+            }
+            beds[containerId].push(roomNumber);
+            localStorage.setItem('beds', JSON.stringify(beds));
+        }
+    
+        // Function to retrieve and display beds from local storage on page load
+        function loadBedsFromLocal() {
+            let beds = JSON.parse(localStorage.getItem('beds')) || {};
+            Object.keys(beds).forEach(containerId => {
+                beds[containerId].forEach(roomNumber => {
+                    addBed(containerId, roomNumber);
+                });
+            });
+        }
+    
+        // Function to add event listeners to bed elements
+        function addEventListeners(bed) {
+            bed.querySelector('.delete-bed').addEventListener('click', function() {
+                const containerId = bed.closest('.bed-container').id;
+                const roomNumber = bed.querySelector('.bed-details').textContent.split(': ')[1];
+                bed.remove();
+                removeBedFromLocal(containerId, roomNumber);
+            });
+        }
+    
+        // Function to remove bed details from local storage
+        function removeBedFromLocal(containerId, roomNumber) {
+            let beds = JSON.parse(localStorage.getItem('beds')) || {};
+            if (beds[containerId]) {
+                beds[containerId] = beds[containerId].filter(num => num !== roomNumber);
+                localStorage.setItem('beds', JSON.stringify(beds));
+            }
+        }
+    
+        // On page load, check if a new bed needs to be added and load existing beds
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roomNumber = urlParams.get('room');
+            const bedType = urlParams.get('type');
+    
+            // Load existing beds from local storage
+            loadBedsFromLocal();
+    
+            if (roomNumber && bedType) {
+                addBed(bedType, roomNumber);
+            }
+        };
+    </script>
+    
+</body>
+</html>
