@@ -31,3 +31,11 @@ window.addEventListener('resize', () =>{
         document.body.classList.remove('resize-animation-stopper');
     }, 400);
 });
+
+document.getElementById('sortSelect').addEventListener('focus', function() {
+    this.options[0].hidden = true;
+});
+
+document.getElementById('genderSelect').addEventListener('focus', function() {
+    this.options[0].hidden = true;
+});
