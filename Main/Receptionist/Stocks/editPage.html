@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Editing a Stock</title>
+</head>
+
+    <body>
+        <section>
+            <form>
+                <h1>Edit a Stock</h1>
+                <div class="inputbox">
+                    <select required style="background: transparent; width: 100%; height: 60px; border: none; outline: none; font-size: 1rem; padding: 0 35px 0 5px; color: #000;">
+                        <option value="" disabled selected hidden></option>
+                        <option value="HR">Medical and Pharmaceuticals</option>
+                        <option value="Applicant">Medical Supplies & Consumables</option>
+                    </select>
+                    <label for="">Stock Type</label>
+                </div>
+                <div class="inputbox">
+                    <select required style="background: transparent; width: 100%; height: 60px; border: none; outline: none; font-size: 1rem; padding: 0 35px 0 5px; color: #000;">
+                        <option value="" disabled selected hidden></option>
+                        <!--    Dynamic Content loading....-->
+                    </select>
+                    <label for="">Stock Name</label>
+                </div>
+                <div class="inputbox">
+                    <select required style="background: transparent; width: 100%; height: 60px; border: none; outline: none; font-size: 1rem; padding: 0 35px 0 5px; color: #000;">
+                        <option value="" disabled selected hidden></option>
+                        <!--    Dynamic Content loading....-->
+                    </select>
+                    <label for="">Medicine Name</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="cube-outline"></ion-icon>
+                    <input type="number" required>
+                    <label for="">Amount</label>
+                </div>
+                
+                <button>Add</button>
+            </form>
+            
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="./js/script2.js"></script>
+    </body>
+
+</html>

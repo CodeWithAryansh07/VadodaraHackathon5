@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines & Pharmaceuticals Stocks Management</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="header bg-blue">
+        <nav class="navbar bg-blue">
+            <div class="container flex">
+                <a href="index.html" class="navbar-brand">
+                    <img src="assets/logo.png" alt="site logo">
+                </a>
+                <button type="button" class="navbar-show-btn">
+                    <img src="assets/ham-menu-icon.png">
+                </button>
+
+                <div class="navbar-collapse bg-white">
+                    <button type="button" class="navbar-hide-btn">
+                        <img src="assets/close-icon.png">
+                    </button>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="../ReceptionistInterface/index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../AddPatient/index.html" class="nav-link">Add Patient</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../PatientData/index.html" class="nav-link">Patient Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../DischargePatient/index.html" class="nav-link">Discharge Patient</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Stocks</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Stocks/index.html">Medicines & Pharmaceuticals</a></li>
+                                <li><a href="../Stocks/index2.html">Medical Supplies & Consumables</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+        </nav>
+    </header>
+    <!-- Doctor Management Section -->
+    <section class="doctor-management">
+        <div class="container">
+            <!-- Doctor Table -->
+            <div class="doctor-table">
+                <div class="table-controls flex">
+                    <input type="text" id="searchDoctor" class="search-control" placeholder="Search Doctors">
+                    <select id="sortSelect" class="filter-control">
+                        <option value="" disabled selected hidden>Sort by...</option>
+                        <option value="None">Prescription Medication</option>
+                        <option value="name">OTC Medication</option>
+                        <option value="experience">Controlled Substance</option>
+                        <option value="age">Vaccine & Immunization</option>
+                        <option value="patients">Anesthetics</option>
+                        <option value="patients">Antibiotics</option>
+                    </select>
+                    <button id="ApplyFilterButton" class="btn btn-blue">Apply</button>
+                    <button id="editButton" class="btn btn-blue" onclick="window.location.href='editPage.html'">Edit</button>
+                    <button id="deleteButton" class="btn btn-blue">Delete</button>
+                </div>
+                
+                <!-- Example table with hidden Edit and Delete columns -->
+                <div class="table-container">
+                    <h2>Prescription Medications</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Medication</th>
+                                <th>Amount</th>
+                                <th class="delete-column">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prescriptionMedicationsBody">
+                            <!-- Example row -->
+                            <tr>
+                                <td>1</td>
+                                <td>Medication A</td>
+                                <td>10</td>
+                                <td class="delete-column"><span class="delete-icon">&#128465;</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <!-- Over-the-Counter (OTC) Medications Table -->
+                <div class="table-container">
+                    <h2>Over-the-Counter (OTC) Medications</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Medication</th>
+                                <th>Amount</th>
+                                <th class="delete-column">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="otcMedicationsBody">
+                            <!-- Add rows for OTC Medications here -->
+                        </tbody>
+                    </table>
+                </div>
+    
+                <!-- Controlled Substances Table -->
+                <div class="table-container">
+                    <h2>Controlled Substances</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Substance</th>
+                                <th>Amount</th>
+                                <th class="delete-column">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="controlledSubstancesBody">
+                            <!-- Add rows for Controlled Substances here -->
+                        </tbody>
+                    </table>
+                </div>
+    
+                <!-- Vaccines and Immunizations Table -->
+                <div class="table-container">
+                    <h2>Vaccines and Immunizations</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Vaccine/Immunization</th>
+                                <th>Amount</th>
+                                <th class="delete-column">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vaccinesBody">
+                            <!-- Add rows for Vaccines and Immunizations here -->
+                        </tbody>
+                    </table>
+                </div>
+    
+                <!-- Anesthetics Table -->
+                <div class="table-container">
+                    <h2>Anesthetics</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Anesthetic</th>
+                                <th>Amount</th>
+                                <th class="delete-column">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="anestheticsBody">
+                            <!-- Add rows for Anesthetics here -->
+                        </tbody>
+                    </table>
+                </div>
+    
+                <!-- Antibiotics Table -->
+                <div class="table-container">
+                    <h2>Antibiotics</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Antibiotic</th>
+                                <th>Amount</th>
+                                <th class="delete-column">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="antibioticsBody">
+                            <!-- Add rows for Antibiotics here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="js/script.js"></script>
+
+    <script>
+        // State to track visibility of columns
+        let isEditVisible = false;
+        let isDeleteVisible = false;
+    
+        // Function to update column visibility based on the state
+        function updateColumnVisibility() {
+            const editColumns = document.querySelectorAll('.edit-column');
+            const deleteColumns = document.querySelectorAll('.delete-column');
+    
+            if (isEditVisible && isDeleteVisible) {
+                // Show both Edit and Delete columns
+                editColumns.forEach(column => column.style.display = 'table-cell');
+                deleteColumns.forEach(column => column.style.display = 'table-cell');
+            } else if (isEditVisible) {
+                // Show only Edit columns
+                editColumns.forEach(column => column.style.display = 'table-cell');
+                deleteColumns.forEach(column => column.style.display = 'none');
+            } else if (isDeleteVisible) {
+                // Show only Delete columns
+                editColumns.forEach(column => column.style.display = 'none');
+                deleteColumns.forEach(column => column.style.display = 'table-cell');
+            } else {
+                // Hide both Edit and Delete columns
+                editColumns.forEach(column => column.style.display = 'none');
+                deleteColumns.forEach(column => column.style.display = 'none');
+            }
+        }
+    
+        // Event listener for the Edit button
+        document.getElementById('editButton').addEventListener('click', () => {
+            if (isEditVisible) {
+                // Hide Edit columns if already visible
+                isEditVisible = false;
+            } else if (isDeleteVisible) {
+                // Show both Edit and Delete columns if Delete is visible
+                isEditVisible = true;
+            } else {
+                // Show only Edit columns if neither is visible
+                isEditVisible = true;
+                isDeleteVisible = false;
+            }
+            updateColumnVisibility();
+        });
+    
+        // Event listener for the Delete button
+        document.getElementById('deleteButton').addEventListener('click', () => {
+            if (isDeleteVisible) {
+                // Hide Delete columns if already visible
+                isDeleteVisible = false;
+            } else if (isEditVisible) {
+                // Show both Edit and Delete columns if Edit is visible
+                isDeleteVisible = true;
+            } else {
+                // Show only Delete columns if neither is visible
+                isDeleteVisible = true;
+                isEditVisible = false;
+            }
+            updateColumnVisibility();
+        });
+    
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', () => {
+            updateColumnVisibility(); // Ensure columns are hidden initially
+        });
+
+        // Function to handle row deletion
+        function handleRowDeletion(event) {
+            // Ensure the click is on a delete icon
+            if (event.target.classList.contains('delete-icon')) {
+                if (confirm('Are you sure you want to delete this row?')) {
+                    // Find the closest row element and remove it
+                    const row = event.target.closest('tr');
+                    if (row) {
+                        row.remove();
+                    }
+                }
+            }
+        }
+
+        // Event listener for row deletion
+        document.addEventListener('click', handleRowDeletion);
+
+        // Ensure the Amount column is always shown
+        document.querySelectorAll('th, td').forEach(cell => {
+            if (cell.textContent.trim() === 'Amount') {
+              cell.style.display = 'table-cell'; // Ensure the Amount column is always shown
+            }
+          });
+
+        // Make the table scrollable on x-axis when it overflows
+        const tableContainer = document.querySelectorAll('.table-container');
+        tableContainer.forEach(container => {
+            container.style.overflowX = 'auto';
+            container.style.whiteSpace = 'nowrap';
+        });
+
+        // Additional checks for the Amount column
+        const amountColumnIndex = Array.from(document.querySelectorAll('th')).findIndex(th => th.textContent.trim() === 'Amount');
+
+        if (amountColumnIndex !== -1) {
+          document.querySelectorAll('tr').forEach(row => {
+            const cell = row.children[amountColumnIndex];
+            if (cell) {
+              cell.style.display = 'table-cell'; // Ensure visibility
+            }
+          });
+        }
+    </script>
+</body>
+</html>

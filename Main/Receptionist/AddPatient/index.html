@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Bed Management Area</title>
+    <!-- Link to Google Fonts for Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Hospital Bed Management Area</h1>
+
+    <div class="container">
+        <button class="save-button" onclick="window.location.href='AddPatient.html';">Add a Patient +</button>
+    </div>
+    
+
+    <!-- Bed Management Sections -->
+    <div class="bed-section">
+        <div class="controls">Critical Beds (without ventilator)</div>
+        <h2>Empty Beds</h2>
+        <div class="bed-container" id="criticalWithoutVentilatorContainer-emptyBed">
+            <div class="add-bed-container">
+                <img src="./assets/Bed1.png" alt="Add Bed" style="width: 100px; height: 100px;">
+            </div>
+            <div class="add-bed-container">
+                <img src="./assets/Bed1.png" alt="Add Bed" style="width: 100px; height: 100px;">
+            </div>
+        </div>
+        <hr>
+        <h3>Filled Beds</h3>
+        <div class="bed-container" id="criticalWithoutVentilatorContainer-FiledBed">
+            <div class="add-bed-container">
+                <img src="./assets/Bed2.png" alt="Add Bed" style="width: 100px; height: 100px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Critical Beds (with ventilator)</div>
+        <div class="bed-container" id="criticalWithVentilatorContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Non-critical Beds</div>
+        <div class="bed-container" id="nonCriticalContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Operation Theatre Beds</div>
+        <div class="bed-container" id="operationTheatreContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">General Ward Beds</div>
+        <div class="bed-container" id="generalWardContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Semi-Electric Beds</div>
+        <div class="bed-container" id="semiElectricContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Fully Electric Beds</div>
+        <div class="bed-container" id="fullyElectricContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">ICU Beds</div>
+        <div class="bed-container" id="icuContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">High Dependency Unit (HDU) Beds</div>
+        <div class="bed-container" id="hduContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Maternity Beds</div>
+        <div class="bed-container" id="maternityContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Pediatric Beds</div>
+        <div class="bed-container" id="pediatricContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Bariatric Beds</div>
+        <div class="bed-container" id="bariatricContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Isolation Beds</div>
+        <div class="bed-container" id="isolationContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Rehabilitation Beds</div>
+        <div class="bed-container" id="rehabilitationContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bed-section">
+        <div class="controls">Swing Beds</div>
+        <div class="bed-container" id="swingContainer">
+            <div class="add-bed-container">
+                <button class="add-bed">Add Bed +</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
