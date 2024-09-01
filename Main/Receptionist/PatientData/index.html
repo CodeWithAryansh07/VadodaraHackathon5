@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines & Pharmaceuticals Stocks Management</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id = "preloader"></div>
+
+    <!-- header -->
+    <header class="header bg-blue">
+        <nav class="navbar bg-blue">
+            <div class="container flex">
+                <a href="index.html" class="navbar-brand">
+                    <img src="assets/logo.png" alt="site logo">
+                </a>
+                <button type="button" class="navbar-show-btn">
+                    <img src="assets/ham-menu-icon.png">
+                </button>
+
+                <div class="navbar-collapse bg-white">
+                    <button type="button" class="navbar-hide-btn">
+                        <img src="assets/close-icon.png">
+                    </button>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="../ReceptionistInterface/index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../AddPatient/index.html" class="nav-link">Add Patient</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../PatientData/index.html" class="nav-link">Patient Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../DischargePatient/index.html" class="nav-link">Discharge Patient</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Stocks</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Stocks/index.html">Medicines & Pharmaceuticals</a></li>
+                                <li><a href="../Stocks/index2.html">Medical Supplies & Consumables</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+        </nav>
+    </header>
+    <!-- Doctor Management Section -->
+    <section class="doctor-management">
+        <div class="container">
+            <!-- Doctor Table -->
+            <div class="doctor-table">
+                <div class="table-controls flex">
+                    <input type="text" id="searchDoctor" class="search-control" placeholder="Search Doctors">
+                    <select id="sortSelect" class="filter-control">
+                        <option value="" disabled selected hidden>Sort by...</option>
+                        <option value="None">Prescription Medication</option>
+                        <option value="name">OTC Medication</option>
+                        <option value="experience">Controlled Substance</option>
+                        <option value="age">Vaccine & Immunization</option>
+                        <option value="patients">Anesthetics</option>
+                        <option value="patients">Antibiotics</option>
+                    </select>
+                    <button id="ApplyFilterButton" class="btn btn-blue">Apply</button>
+                </div>
+                
+                <!-- Example table with hidden Edit and Delete columns -->
+                <div class="table-container">
+                    <h2>Prescription Medications</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>DOB</th>
+                                <th>Gender</th>
+                                <th>Contact Information</th>
+                                <th>Admit Date</th>
+                                <th>Admit Time</th>
+                                <th>Reason of Admission</th>
+                                <th>Attending Physician</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody id="prescriptionMedicationsBody">
+                            <!-- Example row -->
+                            <tr>
+                                <td>1</td>
+                                <td>Medication A</td>
+                                <td>10</td>
+                                <td>1</td>
+                                <td>Medication A</td>
+                                <td>10</td>
+                                <td>1</td>
+                                <td>Medication A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                
+            </div>
+        </div>
+    </section>
+    
+    <script src="js/script.js"></script>
+
+    <script>
+        const columnsToShow = ['Full Name', 'DOB', 'Gender', 'Contact Information', 'Admit Date', 'Admit Time', 'Reason of Admission', 'Attending Physician'];
+
+// Ensure the specified columns are always shown
+document.querySelectorAll('th, td').forEach(cell => {
+  if (columnsToShow.includes(cell.textContent.trim())) {
+    cell.style.display = 'table-cell'; // Ensure the column is always shown
+  }
+});
+
+// Make the table scrollable on the x-axis when it overflows
+const tableContainer = document.querySelector('.table-container');
+if (tableContainer) {
+  tableContainer.style.overflowX = 'auto';
+  tableContainer.style.whiteSpace = 'nowrap';
+}
+
+// Additional checks for each specified column
+columnsToShow.forEach(columnName => {
+  const columnIndex = Array.from(document.querySelectorAll('th')).findIndex(th => th.textContent.trim() === columnName);
+  
+  if (columnIndex !== -1) {
+    document.querySelectorAll('tr').forEach(row => {
+      const cell = row.children[columnIndex];
+      if (cell) {
+        cell.style.display = 'table-cell'; // Ensure visibility
+      }
+    });
+  }
+});
+
+        
+        
+    </script>
+    <script>
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function() {
+            loader.style.display="none";
+        });
+    </script>
+</body>
+</html>

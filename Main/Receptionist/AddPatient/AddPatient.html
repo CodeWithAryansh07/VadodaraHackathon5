@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+   <title>Patient Information Form</title>
+</head>
+<body>
+    <div id = "preloader"></div>
+
+    <div class="container">
+        <header>Patient Information</header>
+
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Patient Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Patient Id</label>
+                            <input type="text" placeholder="Enter Patient ID" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Hospital Id</label>
+                            <input type="text" placeholder="Enter Hospital ID" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Bed Id</label>
+                            <input type="text" placeholder="Enter Bed ID" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Department Id</label>
+                            <input type="text" placeholder="Enter Department ID" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Enter First Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Enter Last Name" required>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="details ID">
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Select Date of Birth" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <input type="text" placeholder="Enter Gender" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Admission Date</label>
+                            <input type="date" placeholder="Select Admission Date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Discharge Date</label>
+                            <input type="date" placeholder="Select Discharge Date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Contact Number</label>
+                            <input type="tel" placeholder="Enter Contact Number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter Email Address" required>
+                        </div>
+                    </div>
+
+                    <button class="submit" formaction="demo.html">
+                        <span class="btnText">Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function() {
+            loader.style.display="none";
+        });
+    </script>
+</body>
+</html>
