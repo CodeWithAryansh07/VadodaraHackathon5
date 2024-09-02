@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines & Pharmaceuticals Stocks Management</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- header -->
+    <div id = "preloader"></div>
+
+    <header class="header bg-blue">
+        <nav class="navbar bg-blue">
+            <div class="container flex">
+                <a href="index.html" class="navbar-brand">
+                    <img src="assets/logo.png" alt="site logo">
+                </a>
+                <button type="button" class="navbar-show-btn">
+                    <img src="assets/ham-menu-icon.png">
+                </button>
+
+                <div class="navbar-collapse bg-white">
+                    <button type="button" class="navbar-hide-btn">
+                        <img src="assets/close-icon.png">
+                    </button>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="../UserInterface/index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../Appointment/index.html" class="nav-link">Get an Appointment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../BedData/index.html" class="nav-link">Check Bed Availability</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../Doctors/index.html" class="nav-link">Doctors</a>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+        </nav>
+    </header>
+    <!-- Doctor Management Section -->
+    <section class="doctor-management">
+        <div class="container">
+            <!-- Doctor Table -->
+            <div class="doctor-table">
+                <div class="table-controls flex">
+                    <input type="text" id="pincode" class="search-control" placeholder="Search using city">
+                    <select id="city" class="filter-control">
+                        <option value="" disabled selected hidden>Sort by State...</option>
+                        <option value="andhra_pradesh">Andhra Pradesh</option>
+                        <option value="arunachal_pradesh">Arunachal Pradesh</option>
+                        <option value="assam">Assam</option>
+                        <option value="bihar">Bihar</option>
+                        <option value="chhattisgarh">Chhattisgarh</option>
+                        <option value="goa">Goa</option>
+                        <option value="gujarat">Gujarat</option>
+                        <option value="haryana">Haryana</option>
+                        <option value="himachal_pradesh">Himachal Pradesh</option>
+                        <option value="jharkhand">Jharkhand</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="madhya_pradesh">Madhya Pradesh</option>
+                        <option value="maharashtra">Maharashtra</option>
+                        <option value="manipur">Manipur</option>
+                        <option value="meghalaya">Meghalaya</option>
+                        <option value="mizoram">Mizoram</option>
+                        <option value="nagaland">Nagaland</option>
+                        <option value="odisha">Odisha</option>
+                        <option value="punjab">Punjab</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="sikkim">Sikkim</option>
+                        <option value="tamil_nadu">Tamil Nadu</option>
+                        <option value="telangana">Telangana</option>
+                        <option value="tripura">Tripura</option>
+                        <option value="uttar_pradesh">Uttar Pradesh</option>
+                        <option value="uttarakhand">Uttarakhand</option>
+                        <option value="west_bengal">West Bengal</option>
+                    </select>
+                    
+
+                    <select id="sortSelect" class="filter-control">
+                        <option value="" disabled selected hidden>Sort by...</option>
+                        <option value="critical_without_ventilator">Critical Beds (without ventilator)</option>
+                        <option value="critical_with_ventilator">Critical Beds (with ventilator)</option>
+                        <option value="non_critical">Non-critical Beds</option>
+                        <option value="operation_theatre">Operation Theatre Beds</option>
+                        <option value="general_ward">General Ward Beds</option>
+                        <option value="semi_electric">Semi-Electric Beds</option>
+                        <option value="fully_electric">Fully Electric Beds</option>
+                        <option value="icu">ICU Beds</option>
+                        <option value="hdu">High Dependency Unit (HDU) Beds</option>
+                        <option value="maternity">Maternity Beds</option>
+                        <option value="pediatric">Pediatric Beds</option>
+                        <option value="bariatric">Bariatric Beds</option>
+                        <option value="isolation">Isolation Beds</option>
+                        <option value="rehabilitation">Rehabilitation Beds</option>
+                        <option value="swing">Swing Beds</option>
+                    </select>
+                    
+                    <button id="ApplyFilterButton" class="btn btn-blue">Apply</button>
+                </div>
+                
+                <!-- Example table with hidden Edit and Delete columns -->
+                <div class="table-container">
+                    <h2>Prescription Medications</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Critical Beds (without ventilator)</th>
+                                <th>Critical Beds (with ventilator)</th>
+                                <th>Non-critical Beds</th>
+                                <th>Operation Theatre Beds</th>
+                                <th>General Ward Beds</th>
+                                <th>Semi-Electric Beds</th>
+                                <th>Fully Electric Beds</th>
+                                <th>ICU Beds</th>
+                                <th>High Dependency Unit (HDU) Beds</th>
+                                <th>Maternity Beds</th>
+                                <th>Pediatric Beds</th>
+                                <th>Bariatric Beds</th>
+                                <th>Isolation Beds</th>
+                                <th>Rehabilitation Beds</th>
+                                <th>Swing Beds</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody id="prescriptionMedicationsBody">
+                            <!-- Example row -->
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="js/script.js"></script>
+    <script>
+        const columnsToShow = [
+            'Critical Beds (without ventilator)',
+            'Critical Beds (with ventilator)',
+            'Non-critical Beds',
+            'Operation Theatre Beds',
+            'General Ward Beds',
+            'Semi-Electric Beds',
+            'Fully Electric Beds',
+            'ICU Beds',
+            'High Dependency Unit (HDU) Beds',
+            'Maternity Beds',
+            'Pediatric Beds',
+            'Bariatric Beds',
+            'Isolation Beds',
+            'Rehabilitation Beds',
+            'Swing Beds'
+        ];
+
+        // Ensure the specified columns are always shown
+        document.querySelectorAll('th, td').forEach(cell => {
+            if (columnsToShow.includes(cell.textContent.trim())) {
+                cell.style.display = 'table-cell'; // Ensure the column is always shown
+            }
+        });
+
+        // Make the table scrollable on the x-axis when it overflows
+        const tableContainer = document.querySelector('.table-container');
+        if (tableContainer) {
+            tableContainer.style.overflowX = 'auto';
+            tableContainer.style.whiteSpace = 'nowrap';
+        }
+
+        // Additional checks for each specified column
+        columnsToShow.forEach(columnName => {
+            const columnIndex = Array.from(document.querySelectorAll('th')).findIndex(th => th.textContent.trim() === columnName);
+
+            if (columnIndex !== -1) {
+                document.querySelectorAll('tr').forEach(row => {
+                    const cell = row.children[columnIndex];
+                    if (cell) {
+                        cell.style.display = 'table-cell'; // Ensure visibility
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function() {
+            loader.style.display="none";
+        });
+    </script>
+</body>
+</html>
